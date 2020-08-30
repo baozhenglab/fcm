@@ -100,6 +100,11 @@ type ApnsBatchResponse struct {
 	StatusCode int
 }
 
+// apiKeyHeader generates the value of the Authorization key
+func (this *FcmClient) apiKeyHeader() string {
+	return fmt.Sprintf("key=%v", this.ApiKey)
+}
+
 // GetInfo gets the instance id info
 func (this *FcmClient) GetInfo(withDetails bool, instanceIdToken string) (*InstanceIdInfoResponse, error) {
 
